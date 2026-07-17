@@ -18,7 +18,7 @@ script = ExtResource("1_bswci")
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 
 [node name="Player" parent="." unique_id=953277140 instance=ExtResource("1_014kd")]
-transform = Transform3D(1, 0, 0, 0, 0.9977248, -0.06741896, 0, 0.06741896, 0.9977248, 8.948301, 3.2891665, -8.577295)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.824279, 2.0830226, -8.644283)
 
 [node name="Exit" type="Area3D" parent="." unique_id=1195843401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
