@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b78w3ieu8s05l"]
+
+[ext_resource type="PackedScene" uid="uid://bhopvnoeguolp" path="res://scenes/player.tscn" id="1_014kd"]
+[ext_resource type="Script" uid="uid://duct3i1qq2e6b" path="res://scripts/level.gd" id="1_bswci"]
+[ext_resource type="MeshLibrary" uid="uid://ds8agjomp7cw4" path="res://assets/dungeon/dungeon.meshlib" id="3_rus8k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lebfe"]
+size = Vector3(3, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lebfe"]
+albedo_color = Color(0.25350568, 0.7415142, 0.06640166, 1)
+
+[node name="Level1" type="Node3D" unique_id=1749238446]
+script = ExtResource("1_bswci")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=763486502]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Player" parent="." unique_id=953277140 instance=ExtResource("1_014kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3475142, 0)
+
+[node name="Exit" type="Area3D" parent="." unique_id=1195843401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Exit" unique_id=1178019755]
+shape = SubResource("BoxShape3D_lebfe")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Exit" unique_id=1146282029]
+size = Vector3(3, 2, 1)
+material = SubResource("StandardMaterial3D_lebfe")
+
+[node name="WinScreen" type="CanvasLayer" parent="." unique_id=522700988]
+process_mode = 3
+
+[node name="Background" type="ColorRect" parent="WinScreen" unique_id=1056557821]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7058824)
+
+[node name="CenterBox" type="VBoxContainer" parent="WinScreen/Background" unique_id=1354812400]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WinScreen/Background/CenterBox" unique_id=468278975]
+layout_mode = 2
+text = "You escaped the dungeon."
+
+[node name="PlayAgainButton" type="Button" parent="WinScreen/Background/CenterBox" unique_id=3805975]
+layout_mode = 2
+text = "Play Again"
+
+[node name="GridMap" type="GridMap" parent="." unique_id=921779512]
+mesh_library = ExtResource("3_rus8k")
+cell_size = Vector3(4, 4, 4)
+data = {
+"cells": PackedInt32Array(65535, 1, 3, 0, 1, 3, 65534, 2, 3, 65534, 1, 3, 65534, 0, 3, 65534, 65535, 1048579, 65534, 65534, 3, 65535, 65534, 3, 0, 65534, 3, 1, 65534, 3, 2, 65534, 1048578, 65535, 65535, 3, 65535, 0, 3, 65535, 2, 3, 0, 65535, 3, 0, 0, 3, 0, 2, 3, 1, 65535, 3, 1, 0, 3, 1, 1, 3, 1, 2, 3, 2, 65535, 1048578, 2, 0, 1048578, 2, 1, 1048578, 2, 2, 1048578, 65534, 65533, 3, 65535, 65533, 3, 0, 65533, 3, 1, 65533, 3, 2, 65533, 1048578, 65533, 65533, 1048579, 65533, 65534, 1048579, 65533, 65535, 1048579, 65533, 0, 1048579, 65533, 1, 1048579, 65533, 2, 1048579, 1, 65532, 2, 0, 65532, 655362, 65535, 65532, 655362, 65534, 65532, 655362, 65532, 65533, 1048578, 65532, 65534, 1048578, 65532, 65535, 1048578, 65532, 1, 1048578, 65532, 2, 1048578, 65534, 3, 655362, 0, 3, 655362, 1, 3, 655362, 65533, 3, 2, 65533, 65532, 2, 65532, 65532, 1048580, 2, 65532, 4, 2, 3, 1441796, 65532, 3, 655364, 65532, 0, 1048578, 65535, 3, 0)
+}
